@@ -3,7 +3,7 @@ title: "githubとzennの連携方法"
 emoji: "🌟"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zenn", "github"]
-published: false
+published: true
 ---
 
 # はじめに
