@@ -91,7 +91,7 @@ describe('my beverage', () => {
 
 ## it
 第1引数にテスト名を、第2引数にテストの確認項目を含む関数を設定する。
- 3番目の引数 (任意) は タイムアウト値 (ミリ秒単位) で、中止するまでの待ち時間を指定する。
+3番目の引数 は タイムアウト値 (ミリ秒単位) で、中止するまでの待ち時間を指定する。
 
 ```
   test('has lemon in it', () => {
@@ -142,7 +142,7 @@ it('drinking La Croix does not lead to errors', () => {
 
 ## beforeEach
 このファイル内の各テストが完了する前に、関数を実行する。
-また、timeout (ミリ秒) を指定して、中断前にどのくらい待機するかを指定することができる。
+timeout (ミリ秒) を指定して、中断前にどのくらい待機するかを指定することができる。
 
 ```
 const globalDatabase = makeGlobalDatabase();
@@ -171,7 +171,7 @@ test('can insert a thing', () => {
 
 ## afterEach
 このファイル内の各テストが完了するたびに、関数を実行する。
-また、timeout (ミリ秒) を指定して、中断前にどのくらい待機するかを指定することができる。
+timeout (ミリ秒) を指定して、中断前にどのくらい待機するかを指定することができる。
 ```
 const globalDatabase = makeGlobalDatabase();
 
