@@ -3,7 +3,7 @@ title: "学習のコツ"
 emoji: "😽"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["learn"]
-published: true
+published: false
 ---
 
 # 学習の仕方
