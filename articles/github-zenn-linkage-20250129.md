@@ -6,12 +6,10 @@ published: true
 ---
 
 ### やったこと
-
-- SpringSecurity の 6.x を利用して認可・認証機能を実装
+SpringSecurity の 6.x を利用して認可・認証機能を実装。
 
 ### 発生したエラー
-
-- vscode の restClient を利用して signupAPI を叩いたところ、403 エラーが発生。
+vscode の restClient を利用して signupAPI を叩いたところ、403 エラーが発生。
 
 ```
 HTTP/1.1 403
@@ -27,13 +25,11 @@ Connection: close
 ```
 
 ### 原因
-
-- 自動で`CSRF`の設定がされている
+自動で`CSRF`の設定がされている。
 
 ### 解決策
-
-- `CSRF`を disabled にする
-- securityFilterChain メソッド内で`http.csrf(AbstractHttpConfigurer::disable);`と設定
+`CSRF`を disabled にする。
+securityFilterChain メソッド内で`http.csrf(AbstractHttpConfigurer::disable);`と設定。
 
 ```Java
 import org.springframework.context.annotation.Bean;
@@ -68,9 +64,7 @@ public class SecurityConfig {
 ```
 
 ### 詰まったこと
-
-- SpringSecurity6.x から大幅に記述方法が変わったらしく、http.csrf を disabled にする方法が中々見つからなかったこと
+SpringSecurity6.x から大幅に記述方法が変わったらしく、http.csrf を disabled にする方法が中々見つからなかったこと。
 
 # 参考記事
-
 [Spring Boot3 + SpringSecurity6 => 403 Forbidden with "requestMatchers"](https://stackoverflow.com/questions/75114615/spring-boot-3-spring-security-6-403-forbidden-with-requestmatchers)
