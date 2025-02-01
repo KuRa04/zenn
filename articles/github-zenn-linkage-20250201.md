@@ -22,7 +22,7 @@ public class Hoge{
 
 //具体的なテストコード RuntimeExceptionのみを観測
 assertThatThrownBy(
-    () -> new Book("1")
+    () -> new Hoge("1")
 ).isInstanceOf(
     RuntimeException.class
 );
