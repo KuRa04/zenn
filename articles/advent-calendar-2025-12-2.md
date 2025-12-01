@@ -3,42 +3,28 @@ title: "W3C/WHATWGについて"
 emoji: "🌍️"
 type: "tech"
 topics: ["Web", "ブラウザ"]
-published: false
+published: true
 ---
 
 ## はじめに
 12月1日から25日まで、毎日1記事ずつ公開していくアドベントカレンダー企画です。
 この連載では、Web標準とDDDについて学びを深めていきます。
-第2回は「Web標準の標準化団体」がテーマです。
-TODO: 
+第2回は「Web標準を策定する標準化団体」がテーマです。
+どのように標準化団体が出来たのか、標準化団体は何をしているのかなどを学んでいきます。
+それでは、Web標準を策定する標準化団体について見ていきましょう。
 
-## Web標準化の2つの潮流 - W3CとWHATWGの誕生
+
+## W3CとWHATWGの誕生
 Web標準を策定する組織として、W3C（World Wide Web Consortium）とWHATWG（Web Hypertext Application Technology Working Group）という2つの団体が存在します。なぜ2つの組織が必要なのでしょうか。
-
-W3Cは1994年、Webの創始者ティム・バーナーズ=リーによって設立されました。HTMLやCSS、DOMなど、Web技術全般の標準化を担当し、長年にわたってWebの発展を支えてきました。W3Cは段階的な勧告プロセス（Working Draft→Candidate Recommendation→Recommendation）を採用し、慎重に標準を策定していきます。
-
-しかし2004年頃、W3CがXHTML 2.0という新しい方向性を推進する中で、Apple、Mozilla、Operaといったブラウザベンダーは実用的なHTML進化の必要性を感じていました。XHTML 2.0は既存のHTMLと互換性がなく、「Webを壊さない」という原則に反していたためです。こうした背景から、ブラウザベンダー主導でWHATWGが設立されました。
-
-WHATWGの特徴は「Living Standard」という考え方です。これは、仕様を完成させて固定するのではなく、継続的に更新し続けるアプローチです。実装と仕様が常に連動し、実際のブラウザで動作する技術を重視します。2019年、HTMLとDOMの標準化権限はWHATWGに一本化され、現在のHTML仕様はWHATWGが管理しています。
+1994年、Webの創始者ティム・バーナーズ=リーによって設立されました。HTMLやCSS、DOMなど、Web技術全般の標準化を担当し、長年にわたってWebの発展を支えてきました。W3Cは段階的な勧告プロセスを採用し、慎重に標準を策定していきます。
+2004年頃、W3CがXHTMLという新しい方向性を推進する中で、Apple、Mozilla、Operaなどが実用的なHTML進化の必要性を感じていました。XHTMLは既存のHTMLと互換性がなく、「Webを壊さない」という原則に反していたためです。XHTMLでは、「タグを省略してはならない」、「属性値の空白は`&nbsp;`と記述する」などのルールがありました。こうした背景から、WHATWGが設立されました。
 
 ## それぞれが担当する技術領域
 現在、2つの組織は異なる技術領域を担当しています。
-
-WHATWGは、ブラウザのコア機能に関わる仕様を管理しています。代表的なものがHTMLです。例えば、`<div>`や`<button>`といった要素の定義、フォームの動作、`fetch()`APIの仕様などはすべてWHATWGで標準化されています。その他にも、DOM（Document Object Model）、URL、Streams、Encodingなど、ブラウザの基盤となる技術を担当しています。
-
+WHATWGは、ブラウザのコア機能に関わる仕様を管理しています。代表的なものがHTMLです。例えば、`<div>`や`<button>`といった要素の定義、`fetch()`APIの仕様などは全てWHATWGで標準化されています。その他にも、DOM（Document Object Model）、URL、Streams、Encodingなど、ブラウザの基盤となる技術を担当しています。
 一方、W3Cは幅広い技術領域をカバーしています。CSSはW3Cが管理しており、レイアウトやデザインに関する仕様が継続的に開発されています。WebAssemblyもW3Cの管轄で、ブラウザ上で高速に動作するバイナリフォーマットの標準化を進めています。また、WAI-ARIAなどのアクセシビリティ関連の仕様や、プライバシー・セキュリティに関する技術も担当しています。
 
-興味深いのは、両組織が協力して標準化を進めるケースもあることです。例えば、Service WorkerはWHATWGとW3Cの両方で議論されながら発展してきました。
-
-## 開発者にとっての実践的な理解
-では、実際に仕様を確認したり、最新動向をキャッチアップするにはどうすればよいでしょうか。
-
-WHATWGの仕様は、各技術ごとに専用のURLで公開されています。
-HTML仕様なら https://html.spec.whatwg.org/ で常に最新版を確認できます。
-W3Cの仕様は https://www.w3.org/TR/ に一覧があり、各技術の勧告や草案を閲覧できます。
-
-重要なのは、これらの仕様がGitHubで管理されている点です。WHATWGの仕様リポジトリ（例: https://github.com/whatwg/html ）では、issueやPRを通じて実際の議論を追うことができます。新機能の提案や、実装上の問題について、ブラウザベンダーの開発者たちがどのように議論しているかを見られるのは非常に学びになります。
-
-最新動向のキャッチアップには、[MDN Web Docs](https://developer.mozilla.org/)が役立ちます。各ブラウザの実装状況や、標準化の進捗も確認できます。また、Chrome Platform StatusやWebKit Blogなど、各ブラウザベンダーの公式ブログも有用な情報源です。
-
-IndexedDBのような具体的なAPIを学ぶ際も、まずMDNで概要を掴み、詳細が知りたければWHATWG仕様を参照し、実装の最新状況はGitHubで確認するという流れが効果的です。
+## 仕様をキャッチアップする方法
+WHATWGの仕様は https://html.spec.whatwg.org/ で確認出来ます。
+W3Cの仕様は https://www.w3.org/TR/ に一覧があり、各技術の勧告や草案を閲覧出来ます。
+また、最新動向のキャッチアップには、[MDN Web Docs](https://developer.mozilla.org/)が役立ちます。機能やAPIをどのように使用するかをサンプルコードを用いて説明しています。[MDN Web Docs の掲載基準](https://developer.mozilla.org/ja/docs/MDN/Writing_guidelines/Criteria_for_inclusion)に「信頼できる標準化団体によって公開された仕様書にあり、少なくとも一つの安定したブラウザーで対応しているウェブ標準技術を文書化すること」と記載があり、MDNのドキュメントからWeb標準に沿った仕様を追うことが分かります。
