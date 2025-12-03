@@ -33,7 +33,6 @@ Streams APIは、WHATWGによって策定され、現在は主要ブラウザで
 `WritableStream`と`ReadableStream`のペアから構成されるストリームです。データの変換処理として機能し、`ReadableStreamのpipeThrough()`でパイプラインに挿入できます。
 データの圧縮・解凍、テキストのエンコーディング変換などに使用されます。
 
-
 ## ReadableStreamの実装例
 
 **動作の流れ**
@@ -48,7 +47,6 @@ Streams APIは、WHATWGによって策定され、現在は主要ブラウザで
 #### 1. stream機能の設定
 - `start(controller)`:  `ReadableStream`が作成された後に1回だけ呼び出されるメソッドでストリーム機能を設定するコードを含める必要がある
 - `controller.enqueue()` : 指定されたチャンクを関連する読み取り可能なバイトストリームのキューに入れる
-
 
 ```js
 // `start()`の中で1秒毎にチャンクをキューに詰める
@@ -94,7 +92,6 @@ try {
   reader.releaseLock();
 }
 ```
-
 
 ## 参考
 https://developer.mozilla.org/ja/docs/Web/API/Streams_API
