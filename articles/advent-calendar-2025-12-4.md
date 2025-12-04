@@ -25,7 +25,7 @@ const broadcastChannel = new BroadcastChannel('my_channel');
 
 **メッセージの送信**
 `postMessage()`の引数にメッセージを代入すれば良いです。
-これだけで同じオリジンのタブなどにメッセージが送ることが出来ます。
+これだけで同じオリジンのタブなどにメッセージを送ることが出来ます。
 ```js
 broadcastChannel.postMessage("This is a test message.");
 ```
