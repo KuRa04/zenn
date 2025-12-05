@@ -93,7 +93,7 @@ replaceState(state, unused, url);
 
 ## まとめ
 history APIはブラウザの履歴からページへの移動であったり、ページに対してstateの保存・更新が出来たりすることが分かりました。
-次回はNavigationAPIについてまとめていきたいと思います。
+次回はNavigation APIについてまとめていきたいと思います。
 
 ## 参考
 https://developer.mozilla.org/ja/docs/Web/API/History_API
