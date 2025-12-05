@@ -9,7 +9,7 @@ published: true
 ## はじめに
 12月1日から25日まで、毎日1記事ずつ公開していくアドベントカレンダー企画です。
 この連載では、Web標準とDDDについて学びを深めていきます。
-第3回は「`BroadcastChannelAPI`」がテーマです。
+第4回は「`BroadcastChannelAPI`」がテーマです。
 `BroadcastChannelAPI`とは何か、実際どのように実装するのかを学んでいきます。
 
 ## BroadcastChannelAPIとは
