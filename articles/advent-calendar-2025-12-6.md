@@ -9,8 +9,8 @@ published: true
 ## はじめに
 12月1日から25日まで、毎日1記事ずつ公開していくアドベントカレンダー企画です。
 この連載では、Web標準とDDDについて学びを深めていきます。
-第6回は「`History API`」がテーマです。
-`History API`とは何か、実際どのように実装するのかを学んでいきます。
+第6回は「`Navigation API`」がテーマです。
+`Navigation API`とは何か、実際どのように実装するのかを学んでいきます。
 
 ## Navigation APIとは
 `Navigation API`はブラウザのナビゲーションアクションやアプリケーションの履歴を管理する機能を提供しています。`Navigation API`は`History API`の後継として実装されたAPIです。
@@ -18,9 +18,9 @@ published: true
 - [pushStateの第二引数を削除すべき](https://html5doctor.com/interview-with-ian-hickson-html-editor/#:%7E:text=My%20biggest%20mistake%E2%80%A6there%20are%20so%20many%20to%20choose%20from!%20pushState()%20is%20my%20favourite%20mistake)
 - [The case for the new Web History API](https://github.com/dvoytenko/web-history-api/blob/master/problem.md)
 
-`pushState`の第二引数を削除すべきという話はWebAPI共通の悩みのような気もしています。
+pushStateの第二引数を削除すべきという話はWebAPI共通の悩みのような気もしています。
 設計したものが実際に良いものかどうかをテストするために、実世界でテストをしなければいけませんが、そのテストが終わる頃には変更出来る頃合いを過ぎていました。
-WebAPIはリリースしたら全世界で利用されるので改善するのは中々難しいことが感じられます。
+WebAPIはリリースしたら全世界で利用されるので、既存機能の改善は中々難しいですね。
 
 ## Navigation APIの実装例
 ```html
@@ -36,6 +36,8 @@ WebAPIはリリースしたら全世界で利用されるので改善するの�
 </style>
 <script>
   navigation.addEventListener('navigate', (event) => {
+
+    //　ナビゲーションが発生した際の同一ドキュメント内（SPA）ナビゲーション動作を実装するために使用される。
     event.intercept({
       handler: async () => {
         // state を設定
