@@ -38,7 +38,7 @@ HTMLのサニタイズで提供されているものだと[DOMPurify](https://gi
   const target = document.getElementById("target");
 
   // setHTMLでサニタイズ
-  target.setHTML(unsanitizedString);
+  target.setHTML(unsanitizedHTML);
 
   // Sanitizerのコンストラクタでサニタイズの詳細設定
   // setHTMLの第二引数は任意の引数のoptionsを代入可能
