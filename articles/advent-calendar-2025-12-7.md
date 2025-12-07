@@ -13,18 +13,17 @@ published: true
 `HTML Sanitizer API`とは何か、実際どのように実装するのかを学んでいきます。
 
 ## HTML Sanitizer APIとは
-`HTML Sanitizer API`はHTML文字列を受け取り、`DOM`または [ShadowDOM](https://developer.mozilla.org/ja/docs/Web/API/Web_components/Using_shadow_DOM)に挿入される際に不要な要素や属性、その他の`HTML`をフィルタリングします。Webアプリケーションはクライアント側で作成したデータをもとにHTMLを構築することがありますよね。
+`HTML Sanitizer API`はHTML文字列を受け取り、DOMまたは [ShadowDOM](https://developer.mozilla.org/ja/docs/Web/API/Web_components/Using_shadow_DOM)に挿入される際に不要な要素や属性、その他のHTMLをフィルタリングします。Webアプリケーションはクライアント側で作成したデータをもとにHTMLを構築することがありますよね。
 この時に`<script>`を埋め込んだり、`onError`を埋め込んだりすると、アプリケーションとして意図しない挙動をする可能性があります。（[XSS攻撃](https://developer.mozilla.org/ja/docs/Web/Security/Attacks/XSS)）
 このような攻撃から守るために、不要な要素や属性などをフィルタリングする処理が必要です。
-`HTML`を代入するプロパティとして、`documentElement.innerHTML`が提供されていますが、ユーザーの入力データを利用したい場合は推奨されていません。
+HTMLを代入するプロパティとして、`documentElement.innerHTML`が提供されていますが、ユーザーの入力データを利用したい場合は推奨されていません。
 理由としては、意図しない要素や属性が埋め込まれる可能性があり、`innerHTML`はフィルタリングを行っていないからです。
-ユーザー入力データを利用して`HTML`を構築する場合は`HTML Sanitizer API`が提供している`setHTML`を使うのが良いとされています。
+ユーザー入力データを利用してHTMLを構築する場合は`HTML Sanitizer API`が提供している`setHTML`を使うのが良いとされています。
 ただ、`2025/12/7`時点では`HTML Sanitizer API`は主要なブラウザで実装されておらずベースラインになっていないので、WebAPIとして利用することが出来ません。
-`HTML`のサニタイズで`OSS`として提供されているものだと[DOMPurify](https://github.com/cure53/DOMPurify/tree/main/src)がありますね。
-`HTML Sanitizer API`と同じく不要な要素や属性、`HTML`をフィルタリング出来ます。
+HTMLのサニタイズで提供されているものだと[DOMPurify](https://github.com/cure53/DOMPurify/tree/main/src)がありますね。
+`HTML Sanitizer API`と同じく不要な要素や属性、HTMLをフィルタリング出来ます。
 しかし、新しいHTML要素が追加されたり、利用者側のアップデートが遅れたりすると脆弱性につながる可能性があると考えています。
 `HTML Sanitizer API`であれば、このあたりは保証されるはずです。
-そういった意味でも、`HTML Sanitizer API`がベースラインになってほしいという気持ちがあります。
 
 ## HTML Sanitizer APIの実装例
 ```html
@@ -58,7 +57,7 @@ published: true
 ```
 
 ## クイズ
-2025/12/7時点で、ユーザーの入力を`HTML`に組み込む場合、次のどれを使うべきでしょうか。
+2025/12/7時点で、ユーザーの入力をHTMLに組み込む場合、次のどれを使うべきでしょうか。
 
 1. `DOMPurify.sanitize()`
 2. `documentElement.setHTML`
