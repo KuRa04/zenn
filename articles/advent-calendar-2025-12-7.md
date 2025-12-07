@@ -57,7 +57,7 @@ HTMLのサニタイズで提供されているものだと[DOMPurify](https://gi
 ```
 
 ## クイズ
-2025/12/7時点で、ユーザーの入力をHTMLに組み込む場合、次のどれを使うべきでしょうか。
+2025/12/7時点でユーザーの入力をHTMLに組み込む場合、次のうちどれを使うべきでしょうか。
 
 1. `DOMPurify.sanitize()`
 2. `documentElement.setHTML`
