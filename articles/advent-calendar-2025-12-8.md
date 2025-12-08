@@ -13,9 +13,9 @@ published: true
 `View Transition API`とは何か、実際どのように実装するのかを学んでいきます。
 
 ## View Transition APIとは
-異なるページの移動をアニメーション遷移を簡単に作成する仕組みです。
+ページの遷移に対して簡単にアニメーションを実装出来る仕組みです。
 SPAにおけるDOMの状態変化のアニメーションなどの移動時のアニメーションも含みます。
-`View Transition API`はアプリケーションの状態またはレビュー間を移動する際の認知的負荷を小さくして読み込み待ちの知覚時間を短縮するための有力な設計の選択肢です。
+`View Transition API`はアプリケーションの状態またはレビュー間を移動する際の認知的負荷を小さくして読み込み待ちの時間を短縮するための有力な設計の選択肢です。
 SPAで状態変化の遷移を行うためにはCSSとJavaScriptを頑張る必要があったのですが、このAPIを使うことで簡単に実現できます。
 [アドカレ6日目](https://zenn.dev/kura_04/articles/advent-calendar-2025-12-6)で`Navigation API`を紹介したのですが、このAPIと相性が良さそうですね！
 
@@ -112,7 +112,6 @@ SPAで状態変化の遷移を行うためにはCSSとJavaScriptを頑張る必�
   </head>
   <body>
     <h1 style="color: blue;">Page 1</h1>
-    <button id="backBtn">Back to Index</button>
   </body>
 </html>
 <style>
@@ -134,7 +133,7 @@ SPAで状態変化の遷移を行うためにはCSSとJavaScriptを頑張る必�
 ```
 
 ## まとめ
-今回はView Transition APIを紹介しました。
+今回は`View Transition API`を紹介しました。
 直近で学習したAPIとの関連付けが出来たのでより深く学べた気がします。
 
 ## 参考
