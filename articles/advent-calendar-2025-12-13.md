@@ -1,5 +1,5 @@
 ---
-title: "Battery Status API"
+title: "Battery Status APIについて"
 emoji: "🌍️"
 type: "tech"
 topics: ["Web", "ブラウザ"]
