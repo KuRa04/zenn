@@ -34,10 +34,8 @@ published: true
 任意の要素をドラッグ可能にするには、`draggable`属性を`true`に設定します。
 @[codepen](https://codepen.io/KuRa04-the-sans/pen/ZYWZLEV)
 
-
 **ドラッグしたアイテムをドロップする**
 @[codepen](https://codepen.io/KuRa04-the-sans/pen/emZogxm)
-
 
 ## HTML Drag and Drop APIの実装例
 HTML Drag and Drop APIを使ったシンプルなパズルゲームを実装しました。
