@@ -16,7 +16,7 @@ published: true
 `Battery Status API`はシステムのバッテリー、充電に関する情報やバッテリーや充電状態が変化した時に発生するイベントによる通知を受け取ることができます。
 例えば、バッテリーの残量が低くなったことを検知してデータを保存するなどの実装が可能です。
 現在、Chrome、Edge、Operaなどで利用可能ですが、FirefoxとSafariでは実装されていません。
-元々Firefoxでは実装されていたのですが、バッテリー情報がユーザーの特定に悪用される可能性が指摘され、プライバシーの懸念やあまり活用されていないことから削除されました。
+元々Firefoxでは実装されていたのですが、バッテリー情報がユーザーの特定に悪用される可能性が指摘されて、プライバシーの懸念も考えられたため削除されました。
 [Battery Status API being Removed from Firefox due to Privacy Concerns](https://www.bleepingcomputer.com/news/software/battery-status-api-being-removed-from-firefox-due-to-privacy-concerns/)
 このように、ブラウザベンダーがAPIを削除することもあるため、ベンダー側の動向も追う必要があると考えます。
 
