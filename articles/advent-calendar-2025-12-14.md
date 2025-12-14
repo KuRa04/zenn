@@ -44,8 +44,8 @@ HTML Drag and Drop APIを使ったシンプルなパズルゲームを実装し�
 
 ## まとめ
 今回は`HTML Drag and Drop API`について紹介しました。
-ドラッグアンドドロップの実装はライブラリを使うイメージを持っていたのですが、WebAPIで可能だったのは驚きです。
-Web API単体で出来ることはたくさんあるので、しっかりと覚えていきたいと思います。
+ドラッグアンドドロップの実装はライブラリを使うイメージを持っていたのですが、Web APIで可能だったのは驚きです。
+Web API単体で出来ることはたくさんあるので、活用できるように理解を深めたい思います。
 
 ## 参考
 https://developer.mozilla.org/ja/docs/Web/API/HTML_Drag_and_Drop_API
