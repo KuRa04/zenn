@@ -20,7 +20,7 @@ published: false
 https://nodejs.org/ja/blog/vulnerability/december-2025-security-releases
 
 Node.jsの脆弱性対応に関するリリース情報です。
-25.x、24.x、22.x、20.xのセキュリティリリースを進めており、12/18もしくはそれ以降でのリリースを予定しています。
+25.x、24.x、22.x、20.xのセキュリティリリースが進められており、2026/1/7にリリースされる予定です。
 
 ## Cursorにビジュアルエディタが入るらしい
 https://cursor.com/ja/blog/browser-visual-editor
@@ -31,30 +31,32 @@ Cursor Browser向けのビジュアルエディタがリリースされました
 ## Base UI v1
 https://x.com/base_ui/status/1999154611123257522
 
-hadcn/uiが内部で使うコンポーネントライブラリにBase UIを選べるようになりました。
+Base UI v1の紹介です。
+APGとWCAG2.2に準拠したことや、shadcn/uiが内部で使うコンポーネントライブラリにBase UIを選べるようになりました。
 
 ## ブラウザからソースコードにジャンプ出来るLocatorJS
 https://www.locatorjs.com/
 
 ブラウザで選択したソースコードをエディタで開くことが出来ます。
+chromeの拡張機能で利用することができ、React、Vue、Svelteなど様々なフレームワークがサポートされています。
 
 ## React2Shell 関連で新しい脆弱性
 https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components
 
 RSCの脆弱性が新たに2点開示されました。
-HTTPリクエストの拒否やソースコードの漏洩の内容になっており、脆弱性の深刻度は大きいものになっています。
+悪用されるとユーザが操作できない状態（DoS）になったり、ソースコードが漏洩したりする可能性があり、深刻度の高い脆弱性となっています。
 
 ## HTML Sanitizer APIの進捗
 https://groups.google.com/a/chromium.org/g/blink-dev/c/iu3VwMotMBc/m/2-LB7pDXAQAJ
 
-HTML Sanitizer APIの標準化についてです。
+HTML Sanitizer APIの標準化についての話題です。
 Web開発者や一部のブラウザから支持を受けており、検討は進展しています。
 
 ## Deno 2.6がリリース
 https://deno.com/blog/v2.6
 
 Deno 2.6のリリース情報です。
-npxと同等のdxコマンドが追加やminimumDependencyAgeが導入されました。
+npxと同等のdxコマンド追加やminimumDependencyAgeが導入されました。
 
 # あとがき
 脆弱性に関する発表やセキュリティリリースが多かった印象です！
