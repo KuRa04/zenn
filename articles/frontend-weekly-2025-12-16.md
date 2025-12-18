@@ -40,7 +40,7 @@ https://www.locatorjs.com/
 ブラウザで選択したソースコードをエディタで開くことが出来るLocatorJSの紹介です。
 chromeの拡張機能で利用することができ、React、Vue、Svelteなど様々なフレームワークがサポートされています。
 
-## RSCで新しい脆弱性が開示された
+## RSCで新たな脆弱性が開示された
 https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components
 
 RSCの脆弱性が新たに2点開示されました。
