@@ -1,5 +1,5 @@
 ---
-title: "React2Shell関連で新しい脆弱性など: Cybozu Frontend Weekly (2025-12-16号)"
+title: "Node.jsの脆弱性とセキュリティ対応など: Cybozu Frontend Weekly (2025-12-16号)"
 emoji: "🌍️"
 type: "tech"
 topics: ["Web", "ブラウザ"]
