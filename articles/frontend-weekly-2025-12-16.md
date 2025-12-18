@@ -19,7 +19,7 @@ published: false
 ## Node.jsの脆弱性とセキュリティ対応したバージョンリリース
 https://nodejs.org/ja/blog/vulnerability/december-2025-security-releases
 
-Node.jsの脆弱性対応に関するリリース情報になります。
+Node.jsの脆弱性対応に関するリリース情報です。
 25.x、24.x、22.x、20.xのセキュリティリリースが進められており、2026/1/7にリリースされる予定です。
 
 ## Cursor Browser向けビジュアルエディタ
