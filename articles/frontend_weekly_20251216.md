@@ -1,8 +1,8 @@
 ---
-title: "Node.jsの脆弱性とセキュリティ対応など: Cybozu Frontend Weekly (2025-12-16号)"
-emoji: "🌍️"
-type: "tech"
-topics: ["Web", "ブラウザ"]
+title: "RSCで新たな脆弱性が開示されたなど: Cybozu Frontend Weekly (2025-12-16号)"
+emoji: "🔐"
+type: "idea"
+topics: ["cybozufrontendweek", "frontend"]
 publication_name: "cybozu_frontend"
 published: false
 ---
@@ -32,7 +32,9 @@ Cursor Browser向けのビジュアルエディタがリリースされました
 https://x.com/base_ui/status/1999154611123257522
 
 Base UI v1の紹介です。
-APGとWCAG2.2に準拠したことや、shadcn/uiが内部で使うコンポーネントライブラリにBase UIを選べるようになりました。
+Base UIはAPGとWCAG2.2に準拠しています。
+また、shadcn/uiが内部で使うコンポーネントライブラリにBase UIを選べるようになりました。
+https://x.com/shadcn/status/1999530415653113871?s=20
 
 ## ブラウザからソースコードにジャンプ出来るLocatorJS
 https://www.locatorjs.com/
