@@ -4,7 +4,7 @@ emoji: "🔐"
 type: "idea"
 topics: ["cybozufrontendweek", "frontend"]
 publication_name: "cybozu_frontend"
-published: false
+published: true
 ---
 
 こんにちは！サイボウズ株式会社 プロダクトエンジニアの[くらっち(@Kuracchi04)](https://x.com/Kuracchi04)です。
