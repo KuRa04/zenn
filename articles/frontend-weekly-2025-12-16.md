@@ -22,7 +22,7 @@ https://nodejs.org/ja/blog/vulnerability/december-2025-security-releases
 Node.jsの脆弱性対応に関するリリース情報になります。
 25.x、24.x、22.x、20.xのセキュリティリリースが進められており、2026/1/7にリリースされる予定です。
 
-## Cursorにビジュアルエディタが入るらしい
+## Cursor Browser向けビジュアルエディタ
 https://cursor.com/ja/blog/browser-visual-editor
 
 Cursor Browser向けのビジュアルエディタがリリースされました。
@@ -40,7 +40,7 @@ https://www.locatorjs.com/
 ブラウザで選択したソースコードをエディタで開くことが出来るLocatorJSの紹介です。
 chromeの拡張機能で利用することができ、React、Vue、Svelteなど様々なフレームワークがサポートされています。
 
-## React2Shell 関連で新しい脆弱性
+## RSCで新たな脆弱性が開示された
 https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components
 
 RSCの脆弱性が新たに2点開示されました。
