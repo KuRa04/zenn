@@ -22,7 +22,7 @@ https://nodejs.org/ja/blog/vulnerability/december-2025-security-releases
 Node.jsの脆弱性対応に関するリリース情報になります。
 25.x、24.x、22.x、20.xのセキュリティリリースが進められており、2026/1/7にリリースされる予定です。
 
-## Cursor Browser 向けビジュアルエディタ
+## Cursor Browser向けビジュアルエディタ
 https://cursor.com/ja/blog/browser-visual-editor
 
 Cursor Browser向けのビジュアルエディタがリリースされました。
