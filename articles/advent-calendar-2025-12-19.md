@@ -9,7 +9,7 @@ published: true
 ## はじめに
 12月1日から25日まで、毎日1記事ずつ公開していくアドベントカレンダー企画です。
 この連載では、Web標準とDDDについて学びを深めていきます。
-第18回は「`File System API`」がテーマです。
+第19回は「`File System API`」がテーマです。
 `File System API`とは何か、どのように実装するのかを紹介します。
 
 ## File System APIとは
