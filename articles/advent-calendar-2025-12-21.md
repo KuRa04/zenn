@@ -90,7 +90,7 @@ function generateUserReport(user: User) {
   const totalHours = activities.reduce((sum, a) => sum + a.hours, 0);
   const isOverworked = totalHours > 160;
   
-  // 3. 表示フォーマット ← デザイナーが変更を求める
+  // 3. 表示フォーマット ← フロントエンジニアが変更を求める
   return `<h1>${user.name}さんのレポート</h1>...`;
 }
 ```
