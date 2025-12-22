@@ -30,4 +30,4 @@ MDNでは、他にも下記のような使用例が紹介されていました�
 `Page Visibility API`では別タブや最小化など、ページが表示されていない時の実装が可能です。
 
 ## 参考
-https://developer.mozilla.org/en-US/docs/Web/API/Compute_Pressure_API
+https://developer.mozilla.org/ja/docs/Web/API/Page_Visibility_API
