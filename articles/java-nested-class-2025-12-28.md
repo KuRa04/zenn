@@ -54,32 +54,6 @@ public class OuterClass {
 }
 ```
 
-```java
-public class OuterClass {
-    private final String outerField;
-
-    public OuterClass(String outerField) {
-        this.outerField = outerField;
-    }
-
-    String getOuterField() {
-        return outerField;
-    }
-
-    record InnerClass(String innerField) {
-    }
-
-    public static void main(String[] args) {
-        OuterClass outer = new OuterClass("Outer Value");
-        InnerClass inner = new InnerClass("Inner Value");
-
-        System.out.println("Outer Field: " + outer.getOuterField());
-        System.out.println("Inner Field: " + inner.getInnerField());
-
-    }
-}
-```
-
 ### カプセル化を強化する
 下記の`クラスB`は`EncapsulatedA`クラスの`privateメンバ`にアクセス出来ます。
 通常、別のクラスから`privateフィールド`にアクセスできませんが、ネストしたクラスは外部クラスの`privateメンバ`にアクセスできます。
