@@ -167,7 +167,7 @@ https://github.com/web-platform-tests/wpt/pull/57696
 
 これにより、AAMのテストをwptで実装できるようになります。
 
-### ARIA-ATとACD
+### Discuss integrating ARIA-AT into Accessibility Compat Data
 https://github.com/w3c/aria-at/issues/1356
 https://www.w3.org/2026/05/06-aria-at-minutes.html
 
