@@ -321,7 +321,6 @@ Google I/O 2026 が開催されました。全体的に AI 中心の内容でし
   - [Chrome DevTools for agents  |  Chrome for Developers](https://developer.chrome.com/docs/devtools/agents)
 - **Modern Web Guidance**: 業界のエキスパートのウェブ構築のナレッジを集めた Agent Skills です。これまで AI Agent が得意としてこなかった HTML や CSS を用いた Web UI 構築に吉報となるものです。
   - [Modern Web Guidance  |  Chrome for Developers](https://developer.chrome.com/docs/modern-web-guidance)
-    
 
 CEO Sunder Pichai によるキーノートや Developer Keynote は以下でご確認ください。
 
@@ -330,6 +329,10 @@ CEO Sunder Pichai によるキーノートや Developer Keynote は以下でご�
 - All the news from the Google I/O 2026 Developer keynote
   - [Google for Developers Blog - News about Web, Mobile, AI and Cloud](https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/)
     
+デザインテクノロジスト saku による Google I/O 2026 のレポートです。
+現地参加だからこそ得られた気づきや学びがまとめられていますのでぜひご覧ください。
+https://blog.cybozu.io/entry/google-io-2026-report
+
 
 ### State of CSS 2026
 https://survey.devographics.com/en-US/survey/state-of-css/2026
