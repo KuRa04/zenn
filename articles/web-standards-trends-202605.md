@@ -262,7 +262,7 @@ classに対して追加機能やメタデータを付与できるようにする
 Decoratorsについての詳細はTSKaigiでの発表資料をご覧ください。
 [Stage 3 Decorators でできること / できないこと / TSKaigi 2026 - Speaker Deck](https://speakerdeck.com/susisu/tskaigi-2026)
 
-#### Amount Reaches Stage 2
+#### Amount to stage 2
 https://github.com/tc39/proposal-amount
 
 値・単位・精度をまとめた不変なオブジェクトを導入する提案です。
