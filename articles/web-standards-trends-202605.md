@@ -212,6 +212,45 @@ W3Cが2026年のForbes Accessibility 200の1つに選出されました。
 ## JavaScript
 
 ### ECMA402
+https://github.com/tc39/ecma402/blob/main/meetings/notes-2026-05-19.md
+
+#### Stable Formatting for Stage 2?
+https://github.com/orgs/tc39/projects/1
+
+以前から特定のロケールに属さない安定的Formatのためのロケールとしてnullのようなロケールをサポートするべきだという話があり、Stable Formattingとして提案されています。
+
+https://github.com/tc39/proposal-stable-formatting
+
+以前の議論でロケールを`null`にすることは `undefined` との挙動の差（`undefined` はホストロケールを使用）により混乱を招くというフィードバックがあり、今回 `null` の代わりに `zxx` という文字列を定義することで合意が得られました。またこれを Intl.STABLE という定数として保持することも合意されました。
+
+#### Intl Sequence Units for Stage 2
+https://github.com/tc39/proposal-intl-sequence-units
+
+「5フィート11インチ」のような複合単位を扱う Intl Sequence Units プロポーザルの Stage 2 進展に向けた議論が行われました。
+主に以下の３点について話し合われ、それぞれ合意が得られました。
+- データ構造 → 単一の数値ではなく `{ feet: 5, inch: 11 } `のようなオブジェクトバッグ形式
+- 負の数が混在する場合の扱い →  `RangeError` とする
+
+  - 「最小単位以外は整数でなければならない」という `Duration` と同様の制約を設ける
+
+- 任意の単位組み合わせを許容するか → 許可されたカテゴリかつ「降順の大きさ」での組み合わせのみを厳格に定義する
+
+これらの挙動が決まったこともあり最終的ににStage2への進展が承認がなされました。
+
+####  Intl Keep Trailing Zeros for Stage 3?
+https://github.com/tc39/proposal-intl-keep-trailing-zeros
+
+フォーマットの際に数値の末尾のゼロを保持したいという提案ですが、現状Stage 3 進出を阻んでいたエッジケース（Issue #15：非常に小さい値をゼロとして描画する際の精度）の解決を待っている状態です。
+
+https://github.com/tc39/proposal-intl-keep-trailing-zeros/issues/15
+
+今回の議論ではIssue #15 を修正する PR のレビュー待ちであることが確認され、これが解決されれば晴れてStage 3 の準備が整うことが再確認されました。
+
+#### ECMA-402 should stop accepting language subtags with more than 3 letters 
+https://github.com/tc39/ecma402/issues/951
+
+3文字を超える言語サブタグ（例：`posix`）の受け入れを停止すべきかという長期的な議論です。
+全ページロードの 0.0021% で依然としてこれらのタグが使用されており、ウェブ互換性のリスクを完全に排除できるか慎重な判断が必要なため、今回の議論では具体的な決定は見送られました。
 
 ### ECMA262
 
@@ -221,16 +260,13 @@ https://github.com/tc39/proposals/commit/cd2396f40e8bcfc76162bcc2d3340024f236bfe
 classに対して追加機能やメタデータを付与できるようにするproposalであるDecoratorsが、Stage3からStage2.7に下がりました。
 
 Decoratorsについての詳細はTSKaigiでの発表資料をご覧ください。
-
 [Stage 3 Decorators でできること / できないこと / TSKaigi 2026 - Speaker Deck](https://speakerdeck.com/susisu/tskaigi-2026)
 
 #### Amount Reaches Stage 2
 https://github.com/tc39/proposal-amount
 
 値・単位・精度をまとめた不変なオブジェクトを導入する提案です。
-
 現状の `Intl.NumberFormat` では「データ（値・単位・精度）」「ロケール」「表示設定」が引数に混在しています。`Intl.NumberFormat` と `Intl.PluralRules` 間で精度を指定し忘れることで複数形判定がずれる（例: `"The rating is 1.0 star"` になってしまう）といったバグが起きやすい状況にあります。
-
 `Amount` を導入し関心を分離することでこれらの問題を解決することが可能です。
 
 ```js
