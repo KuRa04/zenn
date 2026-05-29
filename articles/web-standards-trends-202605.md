@@ -31,6 +31,8 @@ https://blog.cybozu.io/entry/joining-w3c
   - ECMA262 周りのトピックを執筆
 - [mehm8128](https://x.com/mehm8128)
   - 主にアクセシビリティに関連するトピックを執筆
+- [コサキン](https://x.com/karintou74073)
+  - 主に editing に関連するトピックを執筆
 :::
 
 ## HTML
