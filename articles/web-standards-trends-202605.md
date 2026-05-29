@@ -329,7 +329,7 @@ CEO Sunder Pichai によるキーノートや Developer Keynote は以下でご�
 - All the news from the Google I/O 2026 Developer keynote
   - [Google for Developers Blog - News about Web, Mobile, AI and Cloud](https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/)
     
-デザインテクノロジスト saku による Google I/O 2026 のレポートです。
+こちらはGoogle I/O 2026 のレポートです。
 現地参加だからこそ得られた気づきや学びがまとめられていますのでぜひご覧ください。
 https://blog.cybozu.io/entry/google-io-2026-report
 
