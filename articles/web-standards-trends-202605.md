@@ -3,7 +3,7 @@ title: "Web 標準動向 2026年5月版"
 emoji: "🎏"
 type: "idea"
 topics: ["frontend", "cybozuwebstandards"]
-published: false
+published: true
 publication_name: "cybozu_frontend"
 ---
 
@@ -329,7 +329,7 @@ CEO Sunder Pichai によるキーノートや Developer Keynote は以下でご�
 - All the news from the Google I/O 2026 Developer keynote
   - [Google for Developers Blog - News about Web, Mobile, AI and Cloud](https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/)
     
-こちらはGoogle I/O 2026 のレポートです。
+こちらは Google I/O 2026 のレポートです。
 現地参加だからこそ得られた気づきや学びがまとめられていますのでぜひご覧ください。
 https://blog.cybozu.io/entry/google-io-2026-report
 
