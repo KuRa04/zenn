@@ -7,7 +7,7 @@ published: false
 publication_name: "cybozu_frontend"
 ---
 
-こんにちは！ サイボウズ株式会社 フロントエンドエンジニアの [くらっち (@kuracchi04)](https://x.com/kuracchi04) です。
+こんにちは！ サイボウズ株式会社 プロダクトエンジニアの [くらっち (@kuracchi04)](https://x.com/kuracchi04) です。
 
 ## はじめに
 
