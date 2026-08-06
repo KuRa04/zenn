@@ -5,12 +5,13 @@ type: "tech"
 topics: ["改善"]
 published: false
 ---
-
+:::message
 この記事は、[CYBOZU SUMMER BLOG FES '26](https://summer-blog-fes.cybozu.io/2026/)の記事です。
+:::
+
 こんにちは、kintone新機能開発チームでエンジニアとして働いている25卒のkuracchiです。
 今回は、「タスクを完了させる力の改善サイクル」について紹介します。
 
----
 ## 所属チームの開発フロー
 私の所属しているチームはスプリントで開発を行っています。
 スプリントは木曜日開始、水曜日締めで行います。
