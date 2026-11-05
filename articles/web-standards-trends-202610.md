@@ -142,61 +142,73 @@ ACD の概要や貢献方法、その他記事が公開されています。
 ## JavaScript
 
 ### ECMA402
-https://github.com/tc39/ecma402/blob/main/meetings/notes-2026-10-08.md
-
 今月公開された、10 月 8 日の TG2 meeting notes の内容です。
+https://github.com/tc39/ecma402/blob/main/meetings/notes-2026-10-08.md
 
 #### How should JS handle un-deprecation of EST5EDT, CST6CDT, MST7MDT, PST8PDT in TZDB 2026d?
 https://github.com/tc39/ecma402/issues/1103
 
-`EST5EDT` などのタイムゾーン ID は IANA の TZDB で一度非推奨になりましたが、互換性への苦情を受けて TZDB 2026d で非推奨が取り消され、再び独立したゾーン（primary zone）の扱いになりました。このままだと `Intl.supportedValuesOf("timeZone")` の列挙結果に含まれ、タイムゾーン選択 UI にも表示されます。これらのゾーンは過去や将来の日付で都市ベースのゾーンと結果が一致しない場合があり、米国やカナダで夏時間の廃止が進むとその差はさらに広がるため、ユーザーが誤って選んでしまうことが懸念されています。
+`EST5EDT` などのタイムゾーン ID は、IANA の TZDB で一度非推奨になっていました。しかし互換性への苦情を受けて TZDB 2026d で非推奨が取り消され、再び独立したゾーン（primary zone）として扱われるようになりました。このままだと、これらの ID が `Intl.supportedValuesOf("timeZone")` の結果に含まれ、タイムゾーンの選択 UI にも表示されることになります。
 
-現状のブラウザの挙動は、Firefox と Chrome が都市ベースの ID（`America/New_York` など）の alias として扱い、Safari は ID そのものを受け付けない、と 2 通りに分かれています。TZDB と CLDR が変更を元に戻す見込みは低いため、ECMAScript 側で対応することになりました。
+これらのタイムゾーンは、過去や将来の日付で都市ベースのタイムゾーンと異なる時刻になることがあり、事情を知らないユーザーが選択 UI でこれらを選んでしまうことが懸念されていました。またこれらのタイムゾーンに対する現在のブラウザの挙動は 2 通りに分かれてしまっているという問題もあります。Firefox と Chrome はこれらを都市ベースの ID（`America/New_York` など）の alias として扱い、Safari は受け付けません。
 
-- これらの ID を canonical な ID としては認めないと仕様に明記する
-- alias として受け付けるかどうかは実装に任せる（Firefox / Chrome / Safari の現状の挙動はどれも仕様に沿ったままになる）
-
-という方針で、JGT が PR を書き、TG1 に諮る予定です。
+会議の結果、これらを canonical ID（`Intl.supportedValuesOf` で列挙される正式な ID）として認めないことを仕様に明記し、alias として受け付けるかどうかは実装に任せることになりました。こうすると Firefox / Chrome / Safari の現在の挙動はどれも仕様に沿ったものになります。この方針で仕様の PR を作り、TG1（TC39 の本会議）に提出して承認を求める予定です。
 
 #### add String.toTitleCase, String.toLocaleTitleCase
 https://github.com/tc39/ecma402/issues/294
 
-文字列をタイトルケース（単語の先頭を大文字にする）に変換するメソッドの提案です。CSS には `text-transform: capitalize` がありますが、JavaScript には同等の機能がありません。CSSWG と次の進め方を相談するため、SFC が TPAC のブレイクアウトセッションを申し込むことになりました。CLDR と ICU がアイルランド語の大文字小文字変換に対応していない点も、議題に含めるよう求められています。
+文字列をタイトルケース（単語の先頭を大文字にする形）に変換するメソッド `toTitleCase` / `toLocaleTitleCase` を追加しようという Issue です。CSS には `text-transform: capitalize` がありますが、JavaScript には同等の機能がありません。またアイルランド語のように通常より複雑な変換が必要な言語があり、CLDR や ICU がそれに対応していないという課題もあります。
+
+会議の結果、CSSWG と今後の進め方を相談するため、TPAC のブレイクアウトセッションに申し込むことになりました。
 
 #### Duration / time units in Amount
 https://github.com/tc39/proposal-amount/issues/139
 
-Intl Sequence Units（`foot-and-inch` のような複数単位の組み合わせを扱う提案）は時間の単位をサポートしないため、Amount で `minute-and-second` のような時間の単位を持つ値をどうフォーマットするかが議論になりました。EAO と RGN は `Intl.DurationFormat` を使ってフォーマットすべきという立場で、その場合 `toLocaleString()` の options が NumberFormat 用と DurationFormat 用の 2 通りの形を取ることになります。SFC は options の形が分かれることに反対し、時間の単位ではエラーを投げてもよいという立場でした。結論は出ず、Amount から `Temporal.Duration` へ変換する手段（`Amount.prototype.toDuration` や、`Temporal.Duration.from` が Amount を受け取るなど）について SFC が Issue を立てることになりました。
+Amount は、数値と単位を組にして扱う ECMA-262 の提案です。この Issue では、`minute-and-second` のような時間の単位を持つ Amount をどうフォーマットするかが議論されました。Amount のフォーマットには `Intl.NumberFormat` を使いますが、複数の単位の組み合わせを表示する Intl Sequence Units が時間の単位を対象にしていないため、そのままではフォーマットできません。
+
+`Intl.DurationFormat` でフォーマットすればよいという意見が出ましたが、その場合は `toLocaleString()` の options が NumberFormat 用と DurationFormat 用の 2 通りの形になってしまうという問題があります。そのため、時間の単位ではエラーを投げてもよいという意見もありました。
+
+会議では結論が出ず、Amount を `Temporal.Duration` に変換する手段（`Amount.prototype.toDuration` を追加する、`Temporal.Duration.from` が Amount を受け取れるようにする、など）を別の Issue で検討することになりました。
 
 #### Exact input handling for sequence unit values: Iterable vs. Array-like vs. IsArray
 https://github.com/tc39/proposal-intl-sequence-units/issues/19
 
-Intl Sequence Units に渡す値の受け取り方（Iterable / Array-like / 配列のみ）に関する Issue です。EAO がこの Issue は TC39 の AI ポリシーに違反しているとして議論をスキップすることを求め、議論は延期になりました。
+Intl Sequence Units で、フォーマットする値をどの形式（Iterable / Array-like / 配列のみ）で受け取るかについての Issue です。しかし、この Issue 自体が TC39 の AI ポリシーに違反しているという指摘があり、会議では内容を議論せずに延期することになりました。
 
-#### Should we coerce the value field?
+#### Should we coerce the `value` field?
 https://github.com/tc39/proposal-intl-unit-protocol/issues/6
 
-Intl Unit Protocol は、`value` と `unit` のフィールドを持つオブジェクトを `Intl.NumberFormat.prototype.format()` に渡して、数値と単位をまとめてフォーマットできるようにする Stage 2 の提案です。この Issue では、`value` フィールドに対して既存の `format()` と同じ型変換（`Symbol.toPrimitive` を実装した独自の数値型も受け付ける）を行うかが議論されました。NumberFormat が長年独自の数値型を受け付けてきたことを前例として、現状の仕様（型変換を行う）のままにする方向です。
+Intl Unit Protocol は、`value` と `unit` のフィールドを持つオブジェクトを `Intl.NumberFormat.prototype.format()` に渡して、数値と単位をまとめてフォーマットできるようにする Stage 2 の提案です。この Issue では、`value` フィールドにも既存の `format()` と同じ型変換を行うか、つまり `Symbol.toPrimitive` を実装した独自の数値型も受け付けるかが議論されました。
+
+会議の結果、`Intl.NumberFormat` が以前から独自の数値型を受け付けていることにそろえ、型変換を行う現在の仕様を維持する方向になりました。
 
 #### Should we check for the protocol even if the formatter is not a unit/currency formatter?
 https://github.com/tc39/proposal-intl-unit-protocol/issues/7
 
-現状の仕様では、`format()` は常に引数から Intl Unit Protocol のフィールドを読み取ります。これを `style` が `"unit"` か `"currency"` のときだけ読み取るように変更することで合意しました。提案の normative な変更になるため、SFC が次の TG1 に諮ります。
+現在の仕様では、`format()` は `style` に関係なく、引数から常に Intl Unit Protocol のフィールドを読み取ります。そのため、単位を使わない NumberFormat（`style: "decimal"` など）にプロトコルのオブジェクトを渡したときにどう扱うかが問題になっていました。
+
+会議の結果、`style` が `"unit"` か `"currency"` のときだけフィールドを読み取るように変更することになりました。仕様の挙動が変わる normative な変更なので、次回の TG1 に提出して承認を求める予定です。
 
 #### Input unit type checking
 https://github.com/tc39/proposal-intl-unit-protocol/issues/8
 
-不正な単位に対する例外を、フィールドの読み取りなど外から観測できる処理のどの時点で投げるかが論点として残っています。この点は Stage 2.7 のレビューで取り上げることになりました。
+`unit` フィールドに不正な単位が入っていたときに、どの時点で例外を投げるかについての Issue です。フィールドの読み取りなど、外から観測できる処理との順序がまだ決まっていません。
+
+会議の結果、この点は Stage 2.7 に向けたレビューで確認することになりました。
 
 #### Cyclic year doesn't show up in resolvedOptions
 https://github.com/tc39/ecma402/issues/816
 
-中国暦などの干支で年を表すカレンダーで、`Intl.DateTimeFormat.prototype.resolvedOptions()` の結果に `year` が含まれない問題です。仕様では、フォーマットのパターンに `relatedYear` が含まれていれば `year` も含まれることになっており、仕様は正しく実装側が準拠していない、という確認になりました。この挙動を検証する test262 のテストを追加することになりました。
+中国暦のように干支で年を表すカレンダーで、`Intl.DateTimeFormat.prototype.resolvedOptions()` の結果に `year` が含まれないという Issue です。以前の会議で修正方針に合意していましたが、仕様と実装のどちらを直すべきかが改めて確認されました。
+
+仕様では、表示パターンに `relatedYear` が含まれていれば `resolvedOptions()` の結果にも `year` が含まれると定めています。会議の結果、仕様は正しく実装が準拠していないことが確認され、この挙動を検証する test262 のテストを追加することになりました。
 
 #### Normative: Define %TypedArray%.prototype.toLocaleString
 https://github.com/tc39/ecma402/pull/1095
 
-TG2 の議題ではありませんが、今月マージされた normative な PR です。ECMA-262 は、ECMA-402 を実装する処理系では `%TypedArray%.prototype.toLocaleString` を `Array.prototype.toLocaleString` と同じように置き換えるよう求めていますが、ECMA-402 側にその定義がありませんでした。この PR で ECMA-402 に定義が追加され、各要素の `toLocaleString` に `locales` と `options` が渡されることが明記されました。
+TG2 の議題ではありませんが、今月マージされた normative な PR です。ECMA-262 は、ECMA-402 も実装する処理系に対して、`%TypedArray%.prototype.toLocaleString`（`Uint8Array` などの型付き配列の `toLocaleString`）を `Array.prototype.toLocaleString` と同じように ECMA-402 の定義で置き換えるよう求めています。しかし、ECMA-402 にはその定義がありませんでした。
+
+この PR で ECMA-402 に定義が追加され、各要素の `toLocaleString` に `locales` と `options` が渡されることが明記されました。
 
 ### ECMA262
 
