@@ -31,7 +31,7 @@ https://blog.cybozu.io/entry/joining-w3c
   - 主にアクセシビリティに関連するトピックを執筆
 - [くらっち](https://x.com/kuracchi04)
   - ECMA262 周りのトピックを執筆
-- [nus3](https://x.com/karintou74073)
+- [nus3](https://x.com/nus3_)
   - State of系サーベイへのスポンサーのお知らせを執筆
 :::
 
