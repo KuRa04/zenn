@@ -23,16 +23,14 @@ https://blog.cybozu.io/entry/joining-w3c
 :::message
 今月の執筆者は以下の 5 名です。
 
+- [nus3](https://x.com/nus3_)
+  - State of系サーベイへのスポンサーのお知らせを執筆
 - [Saji](https://x.com/sajikix)
   - ECMA402 (Intl) 周りのトピックを執筆
-- [saku](https://x.com/sakupi01)
-  - HTML, CSS に関連するトピックを執筆
 - [mehm8128](https://x.com/mehm8128)
   - 主にアクセシビリティに関連するトピックを執筆
 - [くらっち](https://x.com/kuracchi04)
   - ECMA262 周りのトピックを執筆
-- [nus3](https://x.com/nus3_)
-  - State of系サーベイへのスポンサーのお知らせを執筆
 :::
 
 
@@ -73,7 +71,7 @@ https://groups.google.com/a/chromium.org/g/blink-dev/c/AfSWXY8enI8/m/KjEIra48AgA
 `focusgroup` 属性よりも低レベルで命令的なメソッドになっています。
 
 併せて、要素がフォーカス可能かどうかを紹介する API の案も出されています。
-https://github.com/whatwg/html/issues/13051
+[Proposal: Expose sequential focus navigation primitives · Issue #13051 · whatwg/html](https://github.com/whatwg/html/issues/13051)
 
 ### Gecko: Intent to prototype: Retain focus when elements become disabled
 https://groups.google.com/a/mozilla.org/g/dev-platform/c/POZHELB9Qr4/m/IndtiiBOAQAJ
@@ -81,7 +79,7 @@ https://groups.google.com/a/mozilla.org/g/dev-platform/c/POZHELB9Qr4/m/IndtiiBOA
 `button` などの要素にキーボードフォーカスしている最中にその要素が `disabled` になったとき、キーボードフォーカスを失わないようにする変更のプロトタイプが作成されています。
 今まではキーボードフォーカスを失っていたため、`disabled` 属性の代わりに `aria-disabled` などを用いて無効化状態を実装する hack が用いられることがありましたが、そのような対応が不要になります。
 なお、一度フォーカスを外して再度戻ったときには、今まで通りフォーカスが当たらないようです。
-https://github.com/whatwg/html/issues/13159
+[Should focused elements which become disabled lose focus? · Issue #13159 · whatwg/html](https://github.com/whatwg/html/issues/13159)
 
 ## ARIA・WCAG
 
@@ -99,9 +97,8 @@ List View 内では Tab キーの代わりに矢印キーで操作できるよ�
 なお、role 名は未確定のようです。
 
 参考
-
 - [Interactive lists | Sarah Higley](https://sarahmhigley.com/writing/interactive-lists/)
-- https://gist.github.com/smhigley/7aeea63030c6b05ca98427c4f90efc1a
+- [A proposal for a listview role to discuss during TPAC 2026](https://gist.github.com/smhigley/7aeea63030c6b05ca98427c4f90efc1a)
 
 ### Filtering a listbox with a text field (filterable select)
 https://github.com/w3c/aria/issues/2841
@@ -131,10 +128,9 @@ https://github.com/w3c/aria/pull/2931
 
 以前紹介した browser accessibility heuristics wiki のページに、WebKit で `ul` / `ol` に対して `list-style-type` を `none` に指定すると、`list` role がつかなくなるというヒューリスティックが記載されるようです。これは不具合ではなく意図的な動作です。
 
-refs
-
+参考
 - https://x.com/cookiecrook/status/1337226933822603270
-- https://bugs.webkit.org/show_bug.cgi?id=170179
+- [170179 – VoiceOver does not announce a list for groups of links when list-style: none;](https://bugs.webkit.org/show_bug.cgi?id=170179)
 
 ### ACD - Accessibility Compat Data
 https://acd.lolaslab.co/
@@ -286,5 +282,4 @@ W3C のミッションの 1 つとして、サステナビリティのページ�
 W3C のサステナビリティへの取り組みの概要や、Sustainable Web Interest Group で作業中の Web Sustainability Guidelines の紹介があります。
 
 Web Sustainability Guidelines については、以下の記事で紹介されています。
-
-https://zenn.dev/wsgj/articles/1f79582f108e02
+[Web Sustainability Guidelinesとは](https://zenn.dev/wsgj/articles/1f79582f108e02)
