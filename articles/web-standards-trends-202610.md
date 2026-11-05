@@ -270,7 +270,7 @@ https://web-platform-dx.github.io/web-features-explorer/release-notes/october-20
 ## Misc
 
 ### THIS IS FOR EVERYONE の日本語訳が発売
-https://amzn.asia/d/03y67iYR
+https://str.toyokeizai.net/books/9784492445006/
 
 ティム・バーナーズ＝リー氏の THIS IS FOR EVERYONE の日本語訳本が、10/17 に発売開始されました。
 
