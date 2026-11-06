@@ -3,7 +3,7 @@ title: "Web 標準動向 2026年10月版"
 emoji: "🌰"
 type: "idea"
 topics: ["frontend", "cybozuwebstandards"]
-published: true
+published: false
 published_at: "2026-11-06 12:00"
 publication_name: "cybozu_frontend"
 ---
