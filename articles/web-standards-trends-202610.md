@@ -425,3 +425,12 @@ W3C のサステナビリティへの取り組みの概要や、Sustainable Web 
 
 Web Sustainability Guidelines については、以下の記事で紹介されています。
 [Web Sustainability Guidelinesとは](https://zenn.dev/wsgj/articles/1f79582f108e02)
+
+### Blink: Intent to Prototype: Decisions API
+https://groups.google.com/a/chromium.org/g/blink-dev/c/X_S9ryF9VYA
+
+自然言語の入力を、構造化された質問と選択肢に照らして端末上で評価する Decisions API の Intent to Prototype です。Intents にも書かれている通り、ブラウザ上の System One モデル (e.g. Jev) のようなものです。
+
+現時点では design sketch の段階で、仕様や ship の計画はありません。prototype を通して、FB を募り、今後の方針を決めていく段階でしょう。
+
+[Decisions API Explainer](https://github.com/explainers-by-googlers/decisions-api)
