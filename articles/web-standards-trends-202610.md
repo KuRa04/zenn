@@ -4,7 +4,6 @@ emoji: "🌰"
 type: "idea"
 topics: ["frontend", "cybozuwebstandards"]
 published: false
-published_at: "2026-11-06 12:00"
 publication_name: "cybozu_frontend"
 ---
 
