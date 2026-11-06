@@ -27,6 +27,8 @@ https://blog.cybozu.io/entry/joining-w3c
   - State of系サーベイへのスポンサーのお知らせを執筆
 - [Saji](https://x.com/sajikix)
   - ECMA402 (Intl) 周りのトピックを執筆
+- [saku](https://x.com/sakupi01)
+  - HTML, CSS に関連するトピックを執筆
 - [mehm8128](https://x.com/mehm8128)
   - 主にアクセシビリティに関連するトピックを執筆
 - [くらっち](https://x.com/kuracchi04)
@@ -80,6 +82,134 @@ https://groups.google.com/a/mozilla.org/g/dev-platform/c/POZHELB9Qr4/m/IndtiiBOA
 今まではキーボードフォーカスを失っていたため、`disabled` 属性の代わりに `aria-disabled` などを用いて無効化状態を実装する hack が用いられることがありましたが、そのような対応が不要になります。
 なお、一度フォーカスを外して再度戻ったときには、今まで通りフォーカスが当たらないようです。
 [Should focused elements which become disabled lose focus? · Issue #13159 · whatwg/html](https://github.com/whatwg/html/issues/13159)
+
+### Ship: HTML-in-canvas
+https://groups.google.com/a/chromium.org/g/blink-dev/c/HmKGBDeFyv4
+
+Chrome の 157 から Stable で HTML-in-Canvas が Ship されます。Stable での Ship はブラウザの中では初めてとなります。
+
+これまで Canvas では、テキスト選択やページ内検索、翻訳、Autofill、アクセシビリティが失われ、逆に HTML を重ねると 3D 空間での前後関係やフレーム同期ズレ、毎フレームの CSS 再計算が課題となっていました。
+
+`<canvas content="drawable">` 内の要素を `drawElementImage()` で描画すれば、ブラウザ標準機能や AI エージェントと親和性の高いネイティブ HTML の機能を保ったままシェーダー表現を利用可能です。
+
+Three.js や Babylon.js、PlayCanvas、PixiJS でも対応が進んでいます。
+[HTML-in-Canvas in Chrome 157: Interactive DOM inside 2D, WebGL, and WebGPU](https://developer.chrome.com/blog/html-in-canvas?hl=en)
+
+
+### Overscroll areas – 28 October 2026
+https://www.w3.org/2026/10/28-openui-minutes.html
+
+サイドメニューやボトムシートを、スクロールの仕組みを使って宣言的に実装する Overscroll Areas の設計が議論されています。2025 年の TPAC では HTML と CSS のどちらで扱うかが論点でしたが、現在は HTML の属性と Invoker Commands で構造と操作を表し、CSS で表示方法を制御する方向で進んでいます。scroll chaining、scroll snap、inert、backdrop、Invoker Commands など、既存の仕組みを組み合わせる設計です。
+
+![サイドメニューやボトムシート（出典：Overscroll Areas - TPAC 2026）](/images/web-standards-trends-202610/side-menus-and-bottom-sheets.png)
+
+また、ボタンを必須とすることで、スワイプ操作を使えないキーボードや支援技術の利用者にも操作手段を提供可能にする点も決まっています。ボタンのデザインを前提としたスワイプデザインは、デザイナーにもコミュニケーションが必要になる部分かもしれません。
+
+[Overscroll Areas - TPAC 2026](https://docs.google.com/presentation/d/1lKueENAtnFMZkxzVXY0gQYPWDD2zIfpcsBTCSSQ4-Wk/edit)
+
+### whatwg/spec-ai: AI tooling for working with WHATWG standards
+https://github.com/whatwg/spec-ai
+
+WHATWG が、仕様の執筆やレビューを AI agent で支援するための repository を公開・運用しています。
+HTML Living Standard の Pull Request をレビューし、問題の修正まで行う review-and-fix Skill や、WHATWG の記法を確認する静的チェックが追加されています。Pull Request 増加へのレビューを支援する Skill という位置付けです。
+
+### Custom Attributes
+https://github.com/webplatformco/project-custom-attributes
+
+既存の HTML、SVG、MathML 要素へ、再利用可能な振る舞いを属性として追加する Custom Attributes が提案されています。要素自体を Custom Element に置き換えるのではなく、カスタムの属性で振る舞いのみを付与する発想です。
+
+Customized built-in elements は、`<button is="...">` のように `is` 属性を使って既存要素を拡張します。Interop 2027 では、相互運用が進んでいない customized built-in elements（`is` 属性）を非推奨化する提案も出ています。一方、Custom Attributes は要素の種類を保ったまま、複数の独立した振る舞いを属性として組み合わせられることを目指しています。
+
+TPAC での議論も前向きに進んでおり、今後注目していきたい機能の一つです。
+
+## CSS
+
+### [css-logical] Flow-relative syntax for margin-like shorthands
+https://github.com/w3c/csswg-drafts/issues/1282
+
+長年要望の多かった、Logical Properties のショートハンド対応方法が決定されました。
+
+CSS には `margin-block-start` や `margin-inline-end` といった logical longhand がありますが、`margin: 10px 20px 15px` のような shorthand の値は、物理的な top、right、bottom、left の順序で展開されます。shorthand は parse 時に longhand へ展開されるのですが、logical property を物理方向へ対応付けるには、後から確定する `writing-mode` や `direction` が必要です。この処理順の違いが、logical shorthand の導入を難しくしてきました。
+
+解決策として、パース時に Logical Properties であることをフラグとしてマークする方法が議論されました。今回の resolution では、値の末尾へ `!logical` または `!physical` を付ける形式と、複数の宣言を `@logical` または `@physical` で囲む形式を仕様化する予定です。
+
+```css
+.box {
+  margin: 10px 20px 15px !logical;
+}
+
+@logical {
+  .box {
+    margin: 10px 20px;
+    padding: 5px;
+  }
+}
+```
+
+### CSSWG TPAC misc
+https://www.w3.org/2026/10/29-css-minutes.html
+https://www.w3.org/2026/10/30-css-minutes.html
+
+#### [css-fonts][mediaqueries-5] Add prefers-bold-text user preference media feature
+https://github.com/w3c/csswg-drafts/issues/14477
+
+[2026年9月の記事](https://zenn.dev/cybozu_frontend/articles/web_standards_trends_202609#add-prefers-bold-text-user-preference-media-feature)で紹介した `prefers-bold-text` media query を Media Queries に追加することが決まりました。
+
+#### [css-mixins] Types for private properties (in mixins and elsewhere) and probably function locals
+https://github.com/w3c/csswg-drafts/issues/14442
+
+`@private` と `@function` の本文内に `@property` をネストし、local な custom property の型と初期値を定義できるようにすることが決まりました。
+
+```css
+@mixin --card {
+  @private {
+    @property --space <length>: 1rem;
+  }
+
+  padding: var(--space);
+}
+```
+
+#### Proposal: Custom Highlight API Extensions
+https://github.com/w3c/csswg-drafts/issues/14613
+
+Custom Highlight API で `opacity` と CSS Animations、CSS Transitions を利用できるようにすることが決まりました。多数の `span` 要素を生成せずに、Range で指定した文字列の背景色や文字色、text decoration を fade させられるようになります。
+
+#### [css-grid-3][css-display-4] Naming for grid lanes reading-flow values
+https://github.com/w3c/csswg-drafts/issues/14290
+
+Grid Lanes の視覚的な配置に合わせて読み上げや focus navigation の順序を制御する、`reading-flow` の値が決まりました。
+
+`grid-lanes-track` は track に沿った順序、`grid-lanes-flow` は item を配置する flow に沿った順序を表します。`order` property を反映する `grid-lanes-order` も追加されます。
+
+```css
+.gallery {
+  display: grid-lanes;
+  reading-flow: grid-lanes-flow;
+}
+```
+
+### Blink: Intent to Prototype: CSS Linked Parameters for External SVGs
+https://groups.google.com/a/chromium.org/g/blink-dev/c/8FpImg92-4s
+
+外部 SVG へ名前付きの CSS 値を渡し、SVG 側で `env()` を使って読み取れるようにする CSS Linked Parameters の Intent to Prototype です。
+
+外部 SVG は参照元 document の style や custom property を継承しません。そのため、theme に応じて icon の色を変えるには、SVG を inline 化するか、色ごとに別の file を用意する必要がありました。この提案では、1 つの cache された SVG を再利用しながら、参照ごとに異なる値を渡せます。
+
+```css
+img {
+  link-parameters: param(--icon-color: green);
+}
+```
+
+```html
+<circle fill="env(--icon-color, black)" />
+```
+
+### WebKit Features for Safari 27.2
+https://webkit.org/blog/18515/webkit-features-for-safari-27-2/
+
+Safari 27.2 では、Customizable Select と Grid Lanes の既存実装が追加されました。両実装とも Chrome に続く主要ブラウザ 2 つ目の実装です。
 
 ## ARIA・WCAG
 
